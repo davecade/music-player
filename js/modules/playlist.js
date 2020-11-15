@@ -1,26 +1,33 @@
 import {songsList} from '../data/songs.js';
 
-const Playlist = (()=> {
-
-    let songs = songsList;
-    let currentlyPlayingIndex = 0;
-    let currentSong = new Audio(songs[currentlyPlayingIndex].url)
-    let playlistItem;
-
+const Playlist = (() => {
     // -- Cache the DOM
-    const playlistEl = document.querySelector('.playlist')
+    const playlistEl = document.querySelector(".playlist")
 
-    // -- State
+    // -- Set State
     const state = {
         isPlaying: false
     }
 
-
-    return {
-        init,
-        state
+    const setState = obj => {
+        state.isPlaying = obj.isPlaying
     }
 
+    // -- Initialize
+    const init = () => {
+        render();
+    }
+
+    //-- Render the DOM
+    const render = () => {
+        markup = ''
+    }
+
+    // -- Public Methods
+    return {
+        init,
+        setState
+    }
 })();
 
 export default Playlist;
