@@ -42,7 +42,6 @@ body {
     grid-template-columns: repeat(3, 1fr);
     padding: 2rem 0;
     height: 100vh;
-    overflow-y: scroll;
 
     .play-info {
         display: flex;
@@ -84,6 +83,7 @@ body {
 
     .playlist {
         grid-column: 2 / span 2;
+        overflow-y: scroll;
 
         &-item {
             list-style: none;
