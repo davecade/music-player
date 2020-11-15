@@ -11,7 +11,7 @@
 }
 
 body {
-  background: #111;
+  background: #000;
   color: #fff;
   font-family: Quicksand, sans-serif;
 }
@@ -31,12 +31,14 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   padding: 2rem 0;
+  height: 100vh;
+  overflow-y: scroll;
 }
 
 #app .play-info {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   text-align: center;
 }

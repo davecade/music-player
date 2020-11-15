@@ -12,7 +12,6 @@ $gray: #a8a8a8;
 }
 
 
-
 // -- Main Styling
 * {
     margin: 0;
@@ -21,7 +20,7 @@ $gray: #a8a8a8;
 }
 
 body {
-    background: #111;
+    background: #000;
     color: #fff;
     font-family: $main-font;
 }
@@ -42,11 +41,13 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 2rem 0;
+    height: 100vh;
+    overflow-y: scroll;
 
     .play-info {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: start;
         align-items: center;
         text-align: center;
 
@@ -107,7 +108,5 @@ body {
                 }
             }
         }
-
-
     }
 }
