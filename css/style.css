@@ -1,6 +1,101 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand");
+.playing {
+  color: #00ad00;
+  font-weight: bold;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  background: #111;
+  color: #fff;
+  font-family: Quicksand, sans-serif;
+}
+
+#trackbar {
+  width: 100%;
+  height: 10px;
+}
+
+#trackbar .trackbar-inner {
+  width: 0%;
+  background: #00ad00;
+  height: 10px;
+}
+
+#app {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 2rem 0;
+}
+
+#app .play-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#app .play-info .img-container {
+  width: 90%;
+}
+
+#app .play-info .img-container img {
+  width: 100%;
+}
+
+#app .play-info .app-name {
+  margin: 1rem 0;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+#app .play-info .main-play {
+  background: #00ad00;
+  margin: 1rem 0;
+  color: #fff;
+  width: 170px;
+  height: 50px;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+#app .play-info .main-play:hover {
+  opacity: 0.9;
+}
+
+#app .playlist {
+  grid-column: 2 / span 2;
+}
+
+#app .playlist-item {
+  list-style: none;
+  display: flex;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all .5s ease;
+}
+
+#app .playlist-item:hover {
+  opacity: 0.9;
+  background: #00ad00;
+  color: #fff !important;
+}
+
+#app .playlist-item .song-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#app .playlist-item .song-info div {
+  margin-left: 1rem;
 }
 /*# sourceMappingURL=style.css.map */

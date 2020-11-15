@@ -1,13 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-        <title>Music Player</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <title>Music Player</title>
+</head>
 <body>
+
+    <div id="trackbar">
+        <div class="trackbar-inner"></div>
+    </div>
+
+    <section id="app">
+        <div class="play-info">
+            <div class="img-container">
+                <img src="images/fox.jpg" alt="">
+            </div>
+            
+            <h1 class="app-name">Music Player</h1>
+            <p class="song-count">2 Songs</p>
+            <button class="main-play">PLAY</button>
+        </div>
+        <ul class="playlist">
+            <li class="playlist-item playing">
+                <i class="fas fa-play"></i>
+                <div class="song-info">
+                    <div>
+                        <p class="song-title">My Uso</p>
+                        <p class="song-artist">STNDRD</p>
+                    </div>
+                    <p class="song-duration">04:10</p>
+                </div>
+            </li>
+            <li class="playlist-item">
+                <i class="fas fa-play"></i>
+                <div class="song-info">
+                    <div>
+                        <p class="song-title">My Uso</p>
+                        <p class="song-artist">STNDRD</p>
+                    </div>
+                    <p class="song-duration">04:10</p>
+                </div>
+            </li>
+            <li class="playlist-item">
+                <i class="fas fa-play"></i>
+                <div class="song-info">
+                    <div>
+                        <p class="song-title">My Uso</p>
+                        <p class="song-artist">STNDRD</p>
+                    </div>
+                    <p class="song-duration">04:10</p>
+                </div>
+            </li>
+        </ul>
+    </section>
+
     
+    
+    <script src="js/app.js"></script>
 </body>
 </html>

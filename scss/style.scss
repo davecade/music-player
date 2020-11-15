@@ -1,5 +1,113 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+// -- Variables
+$main-font: Quicksand, sans-serif;
+$green: #00ad00;
+$gray: #a8a8a8;
+
+// -- Utilities
+.playing {
+    color: $green;
+    font-weight: bold;
+}
+
+
+
+// -- Main Styling
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
+    background: #111;
+    color: #fff;
+    font-family: $main-font;
+}
+
+#trackbar {
+    width: 100%;
+    height: 10px;
+
+    .trackbar-inner {
+        width: 0%;
+        background: $green;
+        height: 10px;
+    }
+}
+
+
+#app {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 2rem 0;
+
+    .play-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        .img-container {
+            width: 90%;
+            img {
+                width: 100%;
+            }
+        }
+
+
+        .app-name {
+            margin: 1rem 0;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .main-play {
+            background: $green;
+            margin: 1rem 0;
+            color: #fff;
+            width: 170px;
+            height: 50px;
+            border: none;
+            outline: none;
+            border-radius: 50px;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.9;
+            }
+        }
+    }
+
+    .playlist {
+        grid-column: 2 / span 2;
+
+        &-item {
+            list-style: none;
+            display: flex;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all .5s ease;
+
+            &:hover {
+                opacity: 0.9;
+                background: $green;
+                color: #fff !important;
+            }
+
+            .song-info {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+
+                div {
+                    margin-left: 1rem;
+                }
+            }
+        }
+
+
+    }
 }
