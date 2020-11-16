@@ -20,7 +20,7 @@ const Playlist = (() => {
 
     //-- Render the DOM
     const render = () => {
-        markup = ''
+        let markup = '';
     }
 
     // -- Public Methods
