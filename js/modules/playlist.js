@@ -52,11 +52,12 @@ const Playlist = (() => {
     }
 
     const changeSongSrc = () => {
+        currentSong.pause()
         currentSong = new Audio(songs[state.currentlyPlayingIndex].url)
     }
 
     const updateCurrentlyPlayingIndex = (newIndex) => {
-        state.currentlyPlayingIndex = newIndex
+        state.currentlyPlayingIndex = newIndex;
     }
 
     // -- Initialize
@@ -77,9 +78,17 @@ const Playlist = (() => {
             }
         }
 
+        const toggleGreenHighlight = (index) => {
+            if(state.currentlyPlayingIndex === index && state.isPlaying) {
+                return "playing"
+            } else {
+                return ''
+            }
+        }
+
         songs.forEach((obj, index) => {
             markup += `
-                <li class="playlist-item">
+                <li class="playlist-item ${toggleGreenHighlight(index)}">
                     <i class="fas fa-${togglePlayPauseIcon(index)}"></i>
                     <div class="song-info">
                         <div>
