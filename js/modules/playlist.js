@@ -16,12 +16,38 @@ const Playlist = (() => {
 
     // -- Event Listeners
     const eventListeners = () => {
+
+        // -- Single Click
         playlistEl.addEventListener('click', (event) => {
             if(event.target.matches(".fas")) {
-                const songClicked = event.target.parentNode;
-                const indexOfSongClicked = [...event.target.parentNode.parentNode.children].indexOf(songClicked);
+                let songClicked = event.target.parentNode;
+                let indexOfSongClicked = [...event.target.parentNode.parentNode.children].indexOf(songClicked);
+                handlePlayPause(indexOfSongClicked)
+            } 
+        })
+
+        // -- Double Click
+        playlistEl.addEventListener('dblclick', (event) => {
+            let songClicked
+            let indexOfSongClicked
+            if(event.target.matches(".playlist-item")) {
+                songClicked = event.target;
+                indexOfSongClicked = [...event.target.parentNode.children].indexOf(songClicked);
+            } else if (event.target.matches(".song-info")) {
+                songClicked = event.target.parentNode;
+                indexOfSongClicked = [...event.target.parentNode.parentNode.children].indexOf(songClicked);
+            } else if (event.target.matches(".song-title") || event.target.matches(".song-artist")) {
+                songClicked = event.target.parentNode.parentNode.parentNode;
+                indexOfSongClicked = [...event.target.parentNode.parentNode.parentNode.parentNode.children].indexOf(songClicked);
+            } else if(event.target.matches(".song-duration")) {
+                songClicked = event.target.parentNode.parentNode;
+                indexOfSongClicked = [...event.target.parentNode.parentNode.parentNode.children].indexOf(songClicked);
+            }
+
+            if(indexOfSongClicked) {
                 handlePlayPause(indexOfSongClicked)
             }
+
         })
     }
 
