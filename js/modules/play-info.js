@@ -4,6 +4,7 @@ const PlayInfo = (()=> {
 
     // -- Cache the DOM
     const songCount = document.querySelector('.song-count')
+    const mainButtonEl = document.querySelector('.main-button')
 
     // -- State
     const state = {
@@ -16,7 +17,14 @@ const PlayInfo = (()=> {
 
     //  -- Event Listeners
     const eventListeners = () => {
+        mainButtonEl.addEventListener('click', ()=> {
+            Playlist.flip()
+            render();
+        })
+    }
 
+    const togglePlayPause = () => {
+        return Playlist.state.isPlaying ? "PAUSE" : "PLAY"
     }
 
     // -- Initialize
@@ -28,12 +36,14 @@ const PlayInfo = (()=> {
     // -- Render
     const render = () => {
         songCount.innerHTML = `${state.songsLength} songs`;
+        mainButtonEl.innerHTML = togglePlayPause();
     }
 
     // -- public Methods
     return {
         init,
-        setState
+        setState,
+        render
     }
 
 })();

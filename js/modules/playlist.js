@@ -45,7 +45,7 @@ const Playlist = (() => {
                 indexOfSongClicked = [...event.target.parentNode.parentNode.parentNode.children].indexOf(songClicked);
             }
 
-            if(indexOfSongClicked) {
+            if(indexOfSongClicked >= 0) {
                 handlePlayPause(indexOfSongClicked)
             }
 
@@ -85,6 +85,11 @@ const Playlist = (() => {
 
     const updateCurrentlyPlayingIndex = (newIndex) => {
         state.currentlyPlayingIndex = newIndex;
+    }
+
+    const flip = () => {
+        togglePlayPause();
+        render();
     }
 
     // -- Initialize
@@ -129,18 +134,23 @@ const Playlist = (() => {
             `
         })
 
-        console.log(songs.length)
-        
+        playlistEl.innerHTML = markup;
+
+        PlayInfo.render();
         PlayInfo.setState({
             songsLength: songs.length
         })
-        playlistEl.innerHTML = markup;
+
+
+        
     }
 
     // -- Public Methods
     return {
         init,
-        setState
+        setState,
+        state,
+        flip
     }
 })();
 
