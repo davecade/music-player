@@ -1,4 +1,5 @@
 import {songsList} from '../data/songs.js';
+import PlayInfo from './play-info.js'
 
 const Playlist = (() => {
     // -- Cache the DOM
@@ -112,6 +113,7 @@ const Playlist = (() => {
             }
         }
 
+
         songs.forEach((obj, index) => {
             markup += `
                 <li class="playlist-item ${toggleGreenHighlight(index)}">
@@ -127,6 +129,11 @@ const Playlist = (() => {
             `
         })
 
+        console.log(songs.length)
+        
+        PlayInfo.setState({
+            songsLength: songs.length
+        })
         playlistEl.innerHTML = markup;
     }
 
