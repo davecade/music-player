@@ -1,6 +1,3 @@
-
-import PlayInfo from './play-info.js'
-
 const TrackBar = (() => {
 
     // -- Catch the DOM
@@ -12,7 +9,6 @@ const TrackBar = (() => {
         fullTrackTime: 0,
         fillwidth: 0
     }
-
     const setState = obj => {
         state.currentTrackTime = obj.currentTime,
         state.fullTrackTime = obj.duration,
@@ -35,6 +31,7 @@ const TrackBar = (() => {
         trackBarEl.style.width = `${state.fillwidth}%`;
     }
 
+    // -- Public Methods
     return {
         init,
         setState
