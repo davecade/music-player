@@ -1,5 +1,6 @@
 import {songsList} from '../data/songs.js';
 import PlayInfo from './play-info.js'
+import TrackBar from './trackbar.js';
 
 const Playlist = (() => {
     // -- Cache the DOM
@@ -32,6 +33,11 @@ const Playlist = (() => {
             if(indexOfSongClicked >= 0) {
                 handlePlayPause(indexOfSongClicked)
             }
+        })
+
+        // -- Track current time
+        currentSong.addEventListener('timeupdate', () => {
+            TrackBar.setState(currentSong);
         })
     }
 
@@ -84,8 +90,9 @@ const Playlist = (() => {
     }
 
     const changeSongSrc = () => {
-        currentSong.pause()
-        currentSong = new Audio(songs[state.currentlyPlayingIndex].url)
+        // --currentSong.pause()
+        // -- currentSong = new Audio(songs[state.currentlyPlayingIndex].url)
+        currentSong.src = songs[state.currentlyPlayingIndex].url
     }
 
     const updateCurrentlyPlayingIndex = (newIndex) => {
@@ -145,8 +152,6 @@ const Playlist = (() => {
         PlayInfo.setState({
             songsLength: songs.length
         })
-
-
         
     }
 
