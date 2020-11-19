@@ -5,6 +5,7 @@ import TrackBar from './trackbar.js';
 const Playlist = (() => {
     // -- Cache the DOM
     const playlistEl = document.querySelector(".playlist")
+    const progressEl = document.querySelector('.progress')
 
     // -- Set State
     const state = {
@@ -39,6 +40,11 @@ const Playlist = (() => {
         currentSong.addEventListener('timeupdate', () => {
             TrackBar.setState(currentSong);
         })
+
+        progressEl.addEventListener('change', () => {
+            TrackBar.updateSong(currentSong);
+        })
+
     }
 
     // -- Methods

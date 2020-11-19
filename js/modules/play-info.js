@@ -5,12 +5,12 @@ const PlayInfo = (()=> {
     // -- Cache the DOM
     const songCount = document.querySelector('.song-count')
     const mainButtonEl = document.querySelector('.main-button')
+    
 
     // -- State
     const state = {
         songsLength: 0
     }
-
     const setState = obj => {
         state.songsLength = obj.songsLength
     }

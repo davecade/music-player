@@ -2,6 +2,7 @@ const TrackBar = (() => {
 
     // -- Catch the DOM
     const trackBarEl = document.querySelector('.trackbar-inner');
+    const progressEl = document.querySelector('.progress')
 
     // -- State
     const state = {
@@ -13,8 +14,16 @@ const TrackBar = (() => {
         state.currentTrackTime = obj.currentTime,
         state.fullTrackTime = obj.duration,
         state.fillwidth = getPercent(state.currentTrackTime, state.fullTrackTime)
+        progressEl.value = getPercent(state.currentTrackTime, state.fullTrackTime)
         render()
     }
+
+    const updateSong = (obj) => {
+        // -- Converting the progress back from percentage back to equivalent minutes
+        obj.currentTime = (progressEl.value * state.fullTrackTime) / 100;
+        
+      }
+
 
     // -- Initialize
     const init = () => {
@@ -34,7 +43,8 @@ const TrackBar = (() => {
     // -- Public Methods
     return {
         init,
-        setState
+        setState,
+        updateSong
     }
 })();
 
