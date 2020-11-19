@@ -21,8 +21,7 @@ const TrackBar = (() => {
     const updateSong = (obj) => {
         // -- Converting the progress back from percentage back to equivalent minutes
         obj.currentTime = (progressEl.value * state.fullTrackTime) / 100;
-        
-      }
+    }
 
 
     // -- Initialize
