@@ -133,6 +133,22 @@ body {
                 opacity: 0.9;
             }
         }
+
+        .volume-container {
+            display: flex;
+            margin-top: .5rem;
+            i {
+                margin-right: .3rem;
+
+                &:hover {
+                    opacity: 0.9;
+                }
+            }
+
+            .volume {
+                cursor: pointer;
+            }
+        }
     }
 
     .playlist {

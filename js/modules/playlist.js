@@ -6,6 +6,7 @@ const Playlist = (() => {
     // -- Cache the DOM
     const playlistEl = document.querySelector(".playlist")
     const progressEl = document.querySelector('.progress')
+    const volumeEl = document.querySelector('.volume')
 
     // -- Set State
     const state = {
@@ -43,6 +44,10 @@ const Playlist = (() => {
 
         progressEl.addEventListener('change', () => {
             TrackBar.updateSong(currentSong);
+        })
+
+        volumeEl.addEventListener('change', ()=> {
+            updateVolume();
         })
 
     }
@@ -84,6 +89,10 @@ const Playlist = (() => {
         }
         render();
     }
+
+    const updateVolume = () => {
+        currentSong.volume = volumeEl.value / 100;
+      }
 
     const togglePlayPause = () => {
         if(currentSong.paused) {

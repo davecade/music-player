@@ -128,6 +128,23 @@ body {
   opacity: 0.9;
 }
 
+#app .play-info .volume-container {
+  display: flex;
+  margin-top: .5rem;
+}
+
+#app .play-info .volume-container i {
+  margin-right: .3rem;
+}
+
+#app .play-info .volume-container i:hover {
+  opacity: 0.9;
+}
+
+#app .play-info .volume-container .volume {
+  cursor: pointer;
+}
+
 #app .playlist {
   grid-column: 2 / span 2;
   overflow-y: scroll;

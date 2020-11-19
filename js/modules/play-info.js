@@ -5,6 +5,7 @@ const PlayInfo = (()=> {
     // -- Cache the DOM
     const songCount = document.querySelector('.song-count')
     const mainButtonEl = document.querySelector('.main-button')
+
     
 
     // -- State
@@ -21,6 +22,8 @@ const PlayInfo = (()=> {
             Playlist.flip()
             render();
         })
+
+
     }
 
     const togglePlayPause = () => {
