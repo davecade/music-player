@@ -22,8 +22,6 @@ const PlayInfo = (()=> {
             Playlist.flip()
             render();
         })
-
-
     }
 
     const togglePlayPause = () => {
