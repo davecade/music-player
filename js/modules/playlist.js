@@ -51,6 +51,14 @@ const Playlist = (() => {
             updateVolume();
         })
 
+        currentSong.addEventListener('ended', () => {
+            if(state.currentlyPlayingIndex < songs.length-1) {
+                playNext();
+            } else {
+                restartPlaylist();
+            }
+        })
+
     }
 
     // -- Methods
@@ -113,6 +121,20 @@ const Playlist = (() => {
 
     const updateCurrentlyPlayingIndex = (newIndex) => {
         state.currentlyPlayingIndex = newIndex;
+    }
+
+    const playNext = () => {
+        state.currentlyPlayingIndex++;
+        changeSongSrc()
+        togglePlayPause()
+        render();
+    }
+
+    const restartPlaylist = () => {
+        state.currentlyPlayingIndex=0;
+        changeSongSrc()
+        togglePlayPause()
+        render();
     }
 
     const flip = () => {
