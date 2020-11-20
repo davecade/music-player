@@ -40,6 +40,7 @@ const Playlist = (() => {
         // -- Track current time
         currentSong.addEventListener('timeupdate', () => {
             TrackBar.setState(currentSong);
+            updateTimeProgress();
         })
 
         progressEl.addEventListener('change', () => {
@@ -125,6 +126,25 @@ const Playlist = (() => {
         eventListeners();
     }
 
+    // -- displays current songs time progress
+    const updateTimeProgress = () => {
+        const progressTimeEl = document.querySelector(`.timeID${state.currentlyPlayingIndex}`)
+
+        // -- get minutes
+        let mins = Math.floor(currentSong.currentTime / 60);
+        if (mins < 10) {
+            mins = `0${String(mins)}`
+        }
+    
+        // -- get seconds
+        let secs = Math.floor(currentSong.currentTime % 60);
+        if (secs < 10) {
+        secs = `0${String(secs)}`
+        }
+        
+        progressTimeEl.innerHTML = `${mins}:${secs}`
+    }
+
     //-- Render the DOM
     const render = () => {
         let markup = '';
@@ -155,7 +175,7 @@ const Playlist = (() => {
                             <p class="song-title">${obj.title}</p>
                             <p class="song-artist">${obj.artist}</p>
                         </div>
-                        <p class="song-duration">${obj.time}</p>
+                        <p class="song-duration timeID${index}">${obj.time}</p>
                     </div>
                 </li>
             `
